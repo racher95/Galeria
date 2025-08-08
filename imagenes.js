@@ -4,14 +4,14 @@ export const images = [
           alt: "Imagen de la NASA",
           title: "Tecnología Espacial",
           description:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur minus quia fugiat quae cumque consequatur suscipit quidem? Cupiditate, quos debitis recusandae sequi, fugit quis nihil omnis atque inventore consequatur soluta?",
+            "Esta es una imagen que muestra la tierra desde el espacio, capturada por un satélite de la NASA. La imagen muestra distintas ciudades iluminadas por la noche",
         },
         {
           src: "./Img/img2.jpg",
           alt: "Sala de servidores",
           title: "Infraestructura Digital",
           description:
-            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur minus quia fugiat quae cumque consequatur suscipit quidem? Cupiditate, quos debitis recusandae sequi, fugit quis nihil omnis atque inventore consequatur soluta?",
+            "Imagen de un centro de datos que muestra varios racks de servidores conectados mediante cables de red. Las luces LED indican el funcionamiento activo de los equipos, mientras que las puertas perforadas permiten la ventilación del sistema",
         },
         {
           src: "./Img/img3.jpg",
