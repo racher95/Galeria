@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galería de la Tecnología</title>
     <link rel="stylesheet" href="styles.css" />
+
+    <script src="script.js" type="module"></script>
   </head>
 
   <body>
@@ -13,6 +15,7 @@
 
       <!-- Galería de miniaturas -->
       <div class="gallery-grid">
+HEAD
         <div class="gallery-item" onclick="openModal(0)">
           <img src="img1.jpg" alt="Imagen de la NASA" class="thumbnail" />
           <div class="overlay">
@@ -26,10 +29,13 @@
             <span class="view-text">Ver imagen</span>
           </div>
         </div>
+=======
+
       </div>
     </div>
 
     <!-- Modal para mostrar imágenes -->
+
     <div id="imageModal" class="modal" onclick="closeModal()">
       <span class="close">&times;</span>
 
@@ -38,11 +44,24 @@
         >&#10094;</a
       >
       <a class="next" onclick="changeSlide(1); event.stopPropagation();"
+=======
+    <div id="imageModal" class="modal" >
+      <span class="close">&times;</span>
+
+      <!-- Navegación -->
+      <a class="prev"
+        >&#10094;</a
+      >
+      <a class="next"
         >&#10095;</a
       >
 
       <!-- Contenido del modal -->
+HEAD
       <div class="modal-content" onclick="event.stopPropagation();">
+=======
+      <div class="modal-content">
+
         <img id="modalImage" src="" alt="" />
         <div class="modal-caption">
           <h3 id="modalTitle"></h3>
@@ -53,6 +72,7 @@
         </div>
       </div>
     </div>
+HEAD
 
     <script>
       // Datos de las imágenes
@@ -134,5 +154,6 @@
         }
       });
     </script>
+=======
   </body>
 </html>
