@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería de la Tecnología</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Galería de la Tecnología</h1>
+
+      <!-- Galería de miniaturas -->
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openModal(0)">
+          <img src="img1.jpg" alt="Imagen de la NASA" class="thumbnail" />
+          <div class="overlay">
+            <span class="view-text">Ver imagen</span>
+          </div>
+        </div>
+
+        <div class="gallery-item" onclick="openModal(1)">
+          <img src="img2.jpg" alt="Sala de servidores" class="thumbnail" />
+          <div class="overlay">
+            <span class="view-text">Ver imagen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para mostrar imágenes -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+      <span class="close">&times;</span>
+
+      <!-- Navegación -->
+      <a class="prev" onclick="changeSlide(-1); event.stopPropagation();"
+        >&#10094;</a
+      >
+      <a class="next" onclick="changeSlide(1); event.stopPropagation();"
+        >&#10095;</a
+      >
+
+      <!-- Contenido del modal -->
+      <div class="modal-content" onclick="event.stopPropagation();">
+        <img id="modalImage" src="" alt="" />
+        <div class="modal-caption">
+          <h3 id="modalTitle"></h3>
+          <p id="modalDescription"></p>
+          <div class="modal-counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Datos de las imágenes
+      const images = [
+        {
+          src: "img1.jpg",
+          alt: "Imagen de la NASA",
+          title: "Tecnología Espacial",
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur minus quia fugiat quae cumque consequatur suscipit quidem? Cupiditate, quos debitis recusandae sequi, fugit quis nihil omnis atque inventore consequatur soluta?",
+        },
+        {
+          src: "img2.jpg",
+          alt: "Sala de servidores",
+          title: "Infraestructura Digital",
+          description:
+            "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur minus quia fugiat quae cumque consequatur suscipit quidem? Cupiditate, quos debitis recusandae sequi, fugit quis nihil omnis atque inventore consequatur soluta?",
+        },
+      ];
+
+      let currentImageIndex = 0;
+
+      // Abrir modal con imagen específica
+      function openModal(index) {
+        currentImageIndex = index;
+        updateModalContent();
+        document.getElementById("imageModal").style.display = "block";
+        document.body.style.overflow = "hidden"; // Prevenir scroll del body
+      }
+
+      // Cerrar modal
+      function closeModal() {
+        document.getElementById("imageModal").style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      // Cambiar imagen en el modal
+      function changeSlide(direction) {
+        currentImageIndex += direction;
+
+        // Navegación circular
+        if (currentImageIndex >= images.length) {
+          currentImageIndex = 0;
+        } else if (currentImageIndex < 0) {
+          currentImageIndex = images.length - 1;
+        }
+
+        updateModalContent();
+      }
+
+      // Actualizar contenido del modal
+      function updateModalContent() {
+        const image = images[currentImageIndex];
+        document.getElementById("modalImage").src = image.src;
+        document.getElementById("modalImage").alt = image.alt;
+        document.getElementById("modalTitle").textContent = image.title;
+        document.getElementById("modalDescription").textContent =
+          image.description;
+        document.getElementById("currentSlide").textContent =
+          currentImageIndex + 1;
+        document.getElementById("totalSlides").textContent = images.length;
+      }
+
+      // Navegación con teclado
+      document.addEventListener("keydown", function (event) {
+        const modal = document.getElementById("imageModal");
+        if (modal.style.display === "block") {
+          switch (event.key) {
+            case "Escape":
+              closeModal();
+              break;
+            case "ArrowLeft":
+              changeSlide(-1);
+              break;
+            case "ArrowRight":
+              changeSlide(1);
+              break;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
