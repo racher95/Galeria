@@ -1,5 +1,6 @@
  // Datos de las imágenes
-import { images } from './imagenes.js'     
+import { images } from './imagenes.js'   
+import { crearGaleria } from './dom.js'
 
 let currentImageIndex = 0;
 
@@ -62,35 +63,9 @@ const modal = document.getElementById("imageModal");
     }
 });
 
-
-export function crearGaleria(imagenes) {
-    imagenes.forEach((imagen, index) => {
-    const div = document.createElement('div');
-    div.classList.add('gallery-item');
-
-    const img = document.createElement('img');
-    img.classList.add('thumbnail');
-    img.src = imagen.src;
-    img.alt = imagen.alt;
-
-    const div2 = document.createElement('div');
-    div2.classList.add('overlay');
-
-    const span = document.createElement('span');
-    span.classList.add('view-text');
-    span.textContent = 'Ver imagen';
-
-    div2.appendChild(span);
-    div.appendChild(img);
-    div.appendChild(div2);
-    galeryGrid.appendChild(div);
-
-    div.addEventListener('click', () => openModal(index));
-    });
-}
       
 const galeryGrid = document.querySelector('.gallery-grid');
-crearGaleria(images)      
+crearGaleria({galeryGrid, images, openModal})      
 
 document.querySelector('#imageModal').addEventListener('click', () => closeModal())
 document.querySelector('.prev').addEventListener('click', (e) => {
