@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería de la Tecnología</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <script src="script.js" type="module"></script>
+  </head>
+
+  <body>
+    <div class="page">
+      <h1>Galería de la Tecnología.</h1>
+
+      <div class="container">
+        <!-- Galería de miniaturas -->
+        <div class="gallery-grid"></div>
+      </div>
+
+      <!-- Modal para mostrar imágenes -->
+      <div id="imageModal" class="modal">
+        <!-- Navegación -->
+
+        <!-- Contenido del modal -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <a class="prev">&#10094;</a>
+          <a class="next">&#10095;</a>
+          <img id="modalImage" src="" alt="" />
+          <div class="modal-caption">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDescription"></p>
+            <div class="modal-counter">
+              <span id="currentSlide">1</span> / <span id="totalSlides">2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
